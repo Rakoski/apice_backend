@@ -1,4 +1,4 @@
-# apice_sistema
+# Sistema da Ápice para projeto de estágio!
 Construindo sistema fullstack p/ apice com React, NodeJS, ExpressJS e MySQL
 
 # Backend do Aplicativo do sistema da Ápice - README
