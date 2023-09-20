@@ -8,14 +8,15 @@ Este é o backend do projeto de aplicativo de gerenciamento da Ápice sistemas, 
 ## Tecnologias Utilizadas
 
 - Backend: NodeJS, ExpressJS (Javascript)
-- Build tool c/ npm e Yarn
+- Build tool c/ npm, Yarn e configurações com .env
 - Banco de Dados: MySQL
 
 ## Configuração
 
 1. Clone este repositório.
 2. Configure as variáveis de ambiente, como informações do banco de dados, no arquivo `package.json`.
-3. Execute o aplicativo usando o node:
+3. cd para src/
+4. Execute o aplicativo usando o node:
 
 node app.js
 
