@@ -1,5 +1,5 @@
 # Sistema da Ápice para projeto de estágio!
-Construindo sistema fullstack p/ apice com React, NodeJS, ExpressJS e MySQL
+Construindo sistema fullstack p/ apice com React, NodeJS, ExpressJS, Sequelize e MySQL
 
 # Backend do Aplicativo do sistema da Ápice - README
 
@@ -9,7 +9,7 @@ Este é o backend do projeto de aplicativo de gerenciamento da Ápice sistemas, 
 
 - Backend: NodeJS, ExpressJS (Javascript)
 - Build tool c/ npm, Yarn e configurações com .env
-- Banco de Dados: MySQL
+- Banco de Dados: MySQL, 
 
 ## Configuração
 
@@ -17,6 +17,11 @@ Este é o backend do projeto de aplicativo de gerenciamento da Ápice sistemas, 
 2. Configure as variáveis de ambiente, como informações do banco de dados, no arquivo `package.json`.
 3. cd para src/
 4. Execute o aplicativo usando o node:
+
+mkdir express-sequelize
+cd express-sequelize
+npm init -y
+npm install express sequelize sequelize-cli pg
 
 node app.js
 
