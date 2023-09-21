@@ -1,7 +1,7 @@
 const express = require("express")
 const router = express.Router()
-
-const produtosController = require("../controllers/produtos.controller")
+const produtosService = require("../services/servicosProdutos");
+const produtosController = require("../controllers/produtos.controller");
 
 router.get("/produtos", produtosController.getProdutos)
 router.get("/produtos/:id", produtosController.getProdutoById)

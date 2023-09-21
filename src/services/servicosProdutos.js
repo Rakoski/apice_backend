@@ -1,11 +1,19 @@
-const pool = require('../database/index')
+const { Sequelize, DataTypes } = require('sequelize');
+const sequelize = new Sequelize(
+    process.env.DB_DBNAME,
+    process.env.DB_USERNAME,
+    process.env.DB_PASSWORD,
+    {
+        host: process.env.DB_HOST,
+        dialect: 'mysql',
+    }
+);
+const Produto = require('../models/produto')(sequelize, DataTypes);
 
 const produtosService = {
     getProdutos: async () => {
         try {
-            const sql = "SELECT * FROM produto";
-            const [rows, fields] = await pool.promise().query(sql);
-            return rows;
+            return await Produto.findAll();
         } catch (error) {
             throw error;
         }
@@ -13,9 +21,8 @@ const produtosService = {
 
     getProdutoById: async (id) => {
         try {
-            const sql = "SELECT * FROM produto WHERE id_produto = ?";
-            const [rows, fields] = await pool.promise().query(sql, [id]);
-            return rows;
+            const produto = await Produto.findOne({ where: { id_produto: id } });
+            return produto;
         } catch (error) {
             throw error;
         }
@@ -23,9 +30,10 @@ const produtosService = {
 
     createProduto: async (nome_produto, valor_produto) => {
         try {
-            const sql = "INSERT INTO produto (nome_produto, valor_produto) VALUES (?, ?)";
-            const [rows, fields] = await pool.promise().query(sql, [nome_produto, valor_produto]);
-            return rows;
+            return await Produto.create({
+                nome_produto,
+                valor_produto,
+            });
         } catch (error) {
             throw error;
         }
@@ -33,9 +41,14 @@ const produtosService = {
 
     updateProduto: async (id, nome_produto, valor_produto) => {
         try {
-            const sql = "UPDATE produto SET nome_produto = ?, valor_produto = ? WHERE id_produto = ?";
-            const [rows, fields] = await pool.promise().query(sql, [nome_produto, valor_produto, id]);
-            return rows;
+            const [updatedRowsCount] = await Produto.update(
+                { nome_produto, valor_produto },
+                { where: { id_produto: id } }
+            );
+
+            if (updatedRowsCount === 1) {
+                return { message: 'Produto atualizado com sucesso' };
+            }
         } catch (error) {
             throw error;
         }
@@ -43,13 +56,16 @@ const produtosService = {
 
     deleteProduto: async (id) => {
         try {
-            const sql = "DELETE FROM produto WHERE id_produto = ?";
-            const [rows, fields] = await pool.promise().query(sql, [id]);
-            return rows;
+            const deletedRowCount = await Produto.destroy({ where: { id_produto: id } });
+
+            if (deletedRowCount === 1) {
+                return { message: 'Produto deletado com sucesso' };
+            }
         } catch (error) {
             throw error;
         }
     },
+
 };
 
 module.exports = produtosService;
