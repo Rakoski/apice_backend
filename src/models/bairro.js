@@ -1,5 +1,5 @@
 module.exports = (sequelize, DataTypes) => {
-    const Bairro = sequelize.define("bairro",
+    const Bairro = sequelize.define("Bairro",
         {
             id_bairro: {
                 type: DataTypes.BIGINT,
@@ -10,6 +10,8 @@ module.exports = (sequelize, DataTypes) => {
         {
         bairro_nome: DataTypes.STRING,
     });
+
+    Bairro.hasMany(sequelize.models.Pessoa);
 
     return Bairro;
 };

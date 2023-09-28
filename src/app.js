@@ -15,7 +15,9 @@ const sequelize = new Sequelize(
     }
 );
 
-const Produto = require('./models/produto')(sequelize, Sequelize.DataTypes);
+sequelize.sync({ force: true }).then(() => {
+    console.log('Banco de dados sincronizado.');
+});
 
 const postsRouter = require('./routes/produtos.router')
 
@@ -25,15 +27,14 @@ app.use(express.json())
 app.use("/api", postsRouter)
 
 // pra facilitar o netstat
-const porta = 3000;
+const porta = 8080;
 
-sequelize
-    .sync()
+sequelize.sync()
     .then(() => {
         app.listen(porta, () => {
-            console.log("Server is running on port", porta);
+            console.log("Servidor ta rodando na porta", porta);
         });
     })
     .catch((error) => {
-        console.error("Error syncing Sequelize models:", error);
+        console.error("Erro ao sincronizar o sequelize: ", error);
     });

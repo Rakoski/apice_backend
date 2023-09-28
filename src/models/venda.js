@@ -1,6 +1,6 @@
 module.exports = (sequelize, DataTypes) => {
     const Venda = sequelize.define(
-        "venda",
+        "Venda",
         {
             id_venda: {
                 type: DataTypes.BIGINT,
@@ -16,6 +16,8 @@ module.exports = (sequelize, DataTypes) => {
     );
 
     Venda.belongsTo(sequelize.models.Pessoa, { foreignKey: "pessoa_id" });
+
+    Venda.hasMany(sequelize.models.VendaProduto);
 
     return Venda;
 };

@@ -1,5 +1,5 @@
 module.exports = (sequelize, DataTypes) => {
-    const Pessoa = sequelize.define("pessoa",
+    const Pessoa = sequelize.define("Pessoa",
         {
             id_pessoa: {
                 type: DataTypes.BIGINT,
@@ -19,6 +19,7 @@ module.exports = (sequelize, DataTypes) => {
 
     Pessoa.belongsTo(sequelize.models.Bairro, { foreignKey: "bairro_id" });
     Pessoa.belongsTo(sequelize.models.Cidade, { foreignKey: "cidade_id" });
+    Pessoa.hasMany(sequelize.models.Venda);
 
     return Pessoa;
 };
