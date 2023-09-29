@@ -38,7 +38,7 @@ const bairroServico = {
         }
     },
 
-    updateProduto: async (id, bairro_nome) => {
+    updateBairro: async (id, bairro_nome) => {
         try {
             const [updatedRowsCount] = await Bairro.update(
                 { bairro_nome },

@@ -1,18 +1,22 @@
-module.exports = (sequelize, DataTypes) => {
-    const Cidade = sequelize.define("Cidade",
-        {
-            id_cidade: {
-                type: DataTypes.BIGINT,
-                primaryKey: true,
-                autoIncrement: true,
-            },
+const { DataTypes } = require("sequelize");
+const Sequelize = require("../sequelize");
+const Pessoa = require("./pessoa");
+
+module.exports = (sequelize) => {
+    const Cidade = sequelize.define("Cidade", {
+        id_cidade: {
+            type: DataTypes.BIGINT,
+            primaryKey: true,
+            autoIncrement: true,
         },
-        {
         cidade_nome: DataTypes.STRING,
         sigla_uf: DataTypes.STRING(3),
-    });
-
-    Cidade.hasMany(sequelize.models.Pessoa);
+    },
+        {
+            timestamps: false,
+            tableName: "cidade",
+        }
+    );
 
     return Cidade;
 };
