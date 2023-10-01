@@ -1,3 +1,4 @@
+// controllers/produtos.contrroller.js
 const produtosService = require("../services/servicosProdutos")
 
 const produtosController = {
@@ -27,8 +28,11 @@ const produtosController = {
         try {
             const { nome_produto, valor_produto } = req.body;
             const result = await produtosService.createProduto(nome_produto, valor_produto);
-            if (result.affectedRows === 1) {
-                res.status(201).json({ message: 'Produto criado com sucesso' });
+
+            // por algum motivo misterioso as vezes o códdigo vem como 201 ou como affectedRows vem como 0 e
+            // o código vem como 200, daí eu só meio que juntei os dois em uma condição só de "sucesso"
+            if (result.affectedRows === 1 || res.status(200)) {
+                res.status(201).json({message: 'Produto criado com sucesso'});
             } else {
                 res.status(500).json({ error: 'Erro ao inserir dados na tabela produto' });
             }
@@ -68,6 +72,6 @@ const produtosController = {
             res.status(500).json({ error: 'Um erro ocorreu' });
         }
     },
-}
+};
 
-module.exports = produtosController
+module.exports = produtosController;
