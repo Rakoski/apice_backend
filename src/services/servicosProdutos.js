@@ -69,5 +69,3 @@ const produtosService = {
 };
 
 module.exports = produtosService;
-
-module.exports = produtosService;

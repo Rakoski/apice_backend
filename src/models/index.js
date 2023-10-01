@@ -46,9 +46,9 @@ db.Sequelize = Sequelize;
 db.pessoa = require("./pessoa")(sequelize, DataTypes)
 db.bairro = require("./bairro")(sequelize, DataTypes)
 db.cidade = require("./cidade")(sequelize, DataTypes)
+db.venda_produto = require("./venda_produto")(sequelize, DataTypes)
 db.produto = require("./produto")(sequelize, DataTypes)
-db.cidade = require("./cidade")(sequelize, DataTypes)
-db.cidade = require("./cidade")(sequelize, DataTypes)
+db.venda = require("./venda")(sequelize, DataTypes)
 
 db.bairro.hasMany(db.pessoa, {
   foreignKey : 'bairro_id',
@@ -67,5 +67,32 @@ db.pessoa.belongsTo(db.cidade, {
 db.pessoa.belongsTo(db.cidade, {
   foreignKey: "bairro_id",
 });
+
+db.produto.hasMany(db.venda_produto, {
+  foreignKey: 'produto_id',
+  as: 'review'
+})
+
+db.venda.hasMany(db.venda_produto, {
+  foreignKey: 'venda_id',
+  as: 'review'
+})
+
+db.venda_produto.belongsTo(db.venda,{
+  foreignKey: 'produto_id'
+})
+
+db.venda_produto.belongsTo(db.venda_produto, {
+  foreignKey: 'venda_id'
+})
+
+db.pessoa.hasMany(db.venda, {
+  foreignKey: 'pessoa_id',
+  as: 'review'
+})
+
+db.venda.belongsTo(db.pessoa, {
+  foreignKey: 'pessoa_id'
+})
 
 module.exports = db;
