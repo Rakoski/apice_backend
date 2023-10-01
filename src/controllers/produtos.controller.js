@@ -72,6 +72,6 @@ const produtosController = {
             res.status(500).json({ error: 'Um erro ocorreu' });
         }
     },
-}
+};
 
-module.exports = produtosController
+module.exports = produtosController;

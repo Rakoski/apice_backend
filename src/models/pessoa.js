@@ -1,13 +1,16 @@
-module.exports = (sequelize, DataTypes) => {
-    const Pessoa = sequelize.define("Pessoa",
-        {
-            id_pessoa: {
-                type: DataTypes.BIGINT,
-                primaryKey: true,
-                autoIncrement: true,
-            },
+const { DataTypes } = require("sequelize");
+const sequelize = require("../sequelize");
+const Cidade = require('./cidade');
+const Bairro = require("./bairro")
+const Venda = require("./venda")
+
+module.exports = (sequelize) => {
+    const Pessoa = sequelize.define("Pessoa", {
+        id_pessoa: {
+            type: DataTypes.BIGINT,
+            primaryKey: true,
+            autoIncrement: true,
         },
-        {
         pessoa_nome: DataTypes.STRING,
         cep: DataTypes.STRING(9),
         endereco: DataTypes.STRING,
@@ -15,11 +18,22 @@ module.exports = (sequelize, DataTypes) => {
         complemento: DataTypes.STRING,
         telefone: DataTypes.STRING(21),
         email: DataTypes.STRING,
+            bairro_id: {
+                type: DataTypes.INTEGER, // Adjust the data type as needed
+                defaultValue: null, // Set the default value to null or any other appropriate value
+            },
+        cidade_id: {
+            type: DataTypes.INTEGER, // Adjust the data type as needed
+            defaultValue: null, // Set the default value to null or any other appropriate value
+        }
+    },
+        {
+        timestamps: false,
+        tableName: "pessoa",
     });
 
     Pessoa.belongsTo(sequelize.models.Bairro, { foreignKey: "bairro_id" });
-    Pessoa.belongsTo(sequelize.models.Cidade, { foreignKey: "cidade_id" });
-    Pessoa.hasMany(sequelize.models.Venda);
+    Pessoa.belongsTo(sequelize.models.Cidade, {foreignKey: "cidade_id"});
 
     return Pessoa;
 };

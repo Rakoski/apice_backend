@@ -1,3 +1,6 @@
+const Pessoa = require("./pessoa")
+const VendaProduto = require("./venda_produto")
+
 module.exports = (sequelize, DataTypes) => {
     const Venda = sequelize.define(
         "Venda",
@@ -14,10 +17,6 @@ module.exports = (sequelize, DataTypes) => {
             tableName: "venda",
         }
     );
-
-    Venda.belongsTo(sequelize.models.Pessoa, { foreignKey: "pessoa_id" });
-
-    Venda.hasMany(sequelize.models.VendaProduto);
 
     return Venda;
 };

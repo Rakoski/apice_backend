@@ -1,3 +1,6 @@
+const Venda = require("./venda")
+const Produto = require("./produto")
+
 module.exports = (sequelize, DataTypes) => {
     const VendaProduto = sequelize.define(
         "VendaProduto",
@@ -13,9 +16,6 @@ module.exports = (sequelize, DataTypes) => {
             tableName: "venda_produto",
         }
     );
-
-    VendaProduto.belongsTo(sequelize.models.Venda, { foreignKey: "venda_id" });
-    VendaProduto.belongsTo(sequelize.models.Produto, { foreignKey: "produto_id" });
 
     return VendaProduto;
 };

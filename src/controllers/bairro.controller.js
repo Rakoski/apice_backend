@@ -8,7 +8,7 @@ const bairroController = {
             const data = await bairroServico.getBairros();
             res.json({ data });
         } catch (error) {
-            console.error("Erroo pegar dados do banco de dados:", error);
+            console.error("Erro pegar dados do banco de dados:", error);
             res.status(500).json({ error: "Um erro ocorreu" });
         }
     },
@@ -44,7 +44,7 @@ const bairroController = {
         try {
             const { bairro_nome } = req.body;
             const { id } = req.params;
-            const result = await bairroServico.updateProduto(id, bairro_nome);
+            const result = await bairroServico.updateBairro(id, bairro_nome);
             if (result.affectedRows === 1 || res.status(200)) {
                 res.json({ message: 'Bairro atualizado com sucesso' });
             } else {

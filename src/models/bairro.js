@@ -6,12 +6,13 @@ module.exports = (sequelize, DataTypes) => {
                 primaryKey: true,
                 autoIncrement: true,
             },
+            bairro_nome: DataTypes.STRING,
         },
         {
-        bairro_nome: DataTypes.STRING,
-    });
-
-    Bairro.hasMany(sequelize.models.Pessoa);
+            timestamps: false,
+            tableName: "bairro",
+        }
+    );
 
     return Bairro;
 };
