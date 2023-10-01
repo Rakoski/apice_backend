@@ -216,20 +216,20 @@ A estrutura do projeto NodeJS gerenciado pelo npm (Node Package Manager) em comb
 
 ### Vendas
 
-    - **POST /vendas**
-        - Descrição: Cria uma nova venda.
-        - Uso: `POST /api/vendas`
-        - Corpo da requisição:
-        ```json
-        {
-        "pessoa_id": 1,
-        "valor_venda": 100
-        }
+- **POST /vendas**
+- Descrição: Cria uma nova venda.
+- Uso: `POST /api/vendas`
+- Corpo da requisição:
+    ```json
+    {
+    "pessoa_id": 1,
+    "valor_venda": 100
+    }
         
-    - **GET /vendas**
-    - Descrição: Pega todas as vendas.
-    - Uso: `GET api/vendas`
-    - Corpo da requisição:
+- **GET /vendas**
+- Descrição: Pega todas as vendas.
+- Uso: `GET api/vendas`
+- Corpo da requisição:
     ```json
     {
         "data": [
