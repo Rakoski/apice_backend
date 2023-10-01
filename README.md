@@ -125,14 +125,47 @@ A estrutura do projeto NodeJS gerenciado pelo npm (Node Package Manager) em comb
 - **GET /bairros**
     - Descrição: Retorna todos os bairros.
     - Uso: `GET /bairros`
+    - Resposta de sucesso:
+    ```json
+    {
+    "data": [
+        {
+            "id_bairro": 1,
+            "bairro_nome": "Jardins"
+        },
+        {
+            "id_bairro": 2,
+            "bairro_nome": "Leblon"
+        }
+    ]
+    }
 
 - **GET /bairros/:id**
     - Descrição: Retorna um bairro específico com base no ID.
     - Uso: `GET /bairros/:id`
+    - Reposta de sucesso:
+    ```json
+    {
+    "data": {
+        "id_bairro": 2,
+        "bairro_nome": "Leblon"
+    }
+    }
 
 - **POST /bairros**
     - Descrição: Cria um novo bairro.
     - Uso: `POST /bairros`
+    - Corpo da requisição:
+    ```
+    {
+    "bairro_nome": "Batel"
+    }
+    ```
+    - Resposta de sucesso:
+    ```json
+    {
+    "message": "Bairro criado com sucesso"
+    }
 
 - **PUT /bairros/:id**
     - Descrição: Atualiza um bairro existente com base no ID.
