@@ -36,7 +36,7 @@ A estrutura do projeto NodeJS gerenciado pelo npm (Node Package Manager) em comb
 
 - **GET /produtos**
     - Descrição: Retorna todos os produtos.
-    - Uso: `GET /produtos`
+    - Uso: `GET /api/produtos`
     - Resposta:
   ```json
   {
@@ -91,7 +91,7 @@ A estrutura do projeto NodeJS gerenciado pelo npm (Node Package Manager) em comb
 
 - **GET /produtos/:id**
     - Descrição: Retorna um produto específico com base no ID.
-    - Uso: `GET /produtos/:id`
+    - Uso: `GET /api/produtos/:id`
     - Resposta:
     ```json
   {
@@ -114,122 +114,134 @@ A estrutura do projeto NodeJS gerenciado pelo npm (Node Package Manager) em comb
 
 - **PUT /produtos/:id**
     - Descrição: Atualiza um produto existente com base no ID.
-    - Uso: `PUT /produtos/:id`
+    - Uso: `PUT /api/produtos/:id`
 
 - **DELETE /produtos/:id**
     - Descrição: Exclui um produto existente com base no ID.
-    - Uso: `DELETE /produtos/:id`
+    - Uso: `DELETE /api/produtos/:id`
 
 ### Bairros
 
 - **GET /bairros**
     - Descrição: Retorna todos os bairros.
-    - Uso: `GET /bairros`
+    - Uso: `GET /api/bairros`
     - Resposta de sucesso:
     ```json
     {
-    "data": [
-        {
-            "id_bairro": 1,
-            "bairro_nome": "Jardins"
-        },
-        {
-            "id_bairro": 2,
-            "bairro_nome": "Leblon"
-        }
-    ]
+        "data": [
+            {
+                "id_bairro": 1,
+                "bairro_nome": "Jardins"
+            },
+            {
+                "id_bairro": 2,
+                "bairro_nome": "Leblon"
+            }
+        ]
     }
 
 - **GET /bairros/:id**
     - Descrição: Retorna um bairro específico com base no ID.
-    - Uso: `GET /bairros/:id`
+    - Uso: `GET /api/bairros/:id`
     - Reposta de sucesso:
     ```json
     {
-    "data": {
-        "id_bairro": 2,
-        "bairro_nome": "Leblon"
-    }
+        "data": {
+            "id_bairro": 2,
+            "bairro_nome": "Leblon"
+        }
     }
 
 - **POST /bairros**
     - Descrição: Cria um novo bairro.
-    - Uso: `POST /bairros`
+    - Uso: `POST /api/bairros`
     - Corpo da requisição:
     ```
     {
-    "bairro_nome": "Batel"
+        "bairro_nome": "Batel"
     }
     ```
     - Resposta de sucesso:
     ```json
     {
-    "message": "Bairro criado com sucesso"
+        "message": "Bairro criado com sucesso"
     }
 
 - **PUT /bairros/:id**
     - Descrição: Atualiza um bairro existente com base no ID.
-    - Uso: `PUT /bairros/:id`
+    - Uso: `PUT /api/bairros/:id`
 
 - **DELETE /bairros/:id**
     - Descrição: Exclui um bairro existente com base no ID.
-    - Uso: `DELETE /bairros/:id`
+    - Uso: `DELETE /api/bairros/:id`
 
 ### Cidades
 
 - **GET /cidades**
     - Descrição: Retorna todas as cidades.
-    - Uso: `GET /cidades`
+    - Uso: `GET /api/cidades`
 
 - **GET /cidades/:id**
     - Descrição: Retorna uma cidade específica com base no ID.
-    - Uso: `GET /cidades/:id`
+    - Uso: `GET /api/cidades/:id`
 
 - **POST /cidades**
     - Descrição: Cria uma nova cidade.
-    - Uso: `POST /cidades`
+    - Uso: `POST /api/cidades`
 
 - **PUT /cidades/:id**
     - Descrição: Atualiza uma cidade existente com base no ID.
-    - Uso: `PUT /cidades/:id`
+    - Uso: `PUT /api/cidades/:id`
 
 - **DELETE /cidades/:id**
     - Descrição: Exclui uma cidade existente com base no ID.
-    - Uso: `DELETE /cidades/:id`
+    - Uso: `DELETE /api/cidades/:id`
 
 ### Pessoas
 
 - **POST /pessoas**
     - Descrição: Cria uma nova pessoa.
-    - Uso: `POST /pessoas`
+    - Uso: `POST /api/pessoas`
     - Corpo da requisição:
     ```json
     {
-    "pessoa_nome": "John Doe",
-    "cep": "12345-678",
-    "endereco": "123 Main Street",
-    "numero": "101",
-    "complemento": "Apt 2B",
-    "telefone": "555-555-5555",
-    "email": "johndoe@example.com",
-    "bairro_id": 1,
-    "cidade_id": 1 
+        "pessoa_nome": "John Doe",
+        "cep": "12345-678",
+        "endereco": "123 Main Street",
+        "numero": "101",
+        "complemento": "Apt 2B",
+        "telefone": "555-555-5555",
+        "email": "johndoe@example.com",
+        "bairro_id": 1,
+        "cidade_id": 1 
     }
-
 
 ### Vendas
 
 - **POST /vendas**
     - Descrição: Cria uma nova venda.
-    - Uso: `POST /vendas`
+    - Uso: `POST /api/vendas`
     - Corpo da requisição:
     ```json
     {
     "pessoa_id": 1,
     "valor_venda": 100
     }
-
-
+    
+- **GET /vendas**
+- Descrição: Pega todas as vendas.
+- Uso: `GET api/vendas`
+- Corpo da requisição:
+```json
+{
+    "data": [
+        {
+            "id_venda": 1,
+            "pessoa_id": 3,
+            "valor_venda": "100.00"
+        }
+    ]
+}
 
 ## Contribuição
 
