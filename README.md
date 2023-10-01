@@ -202,6 +202,33 @@ A estrutura do projeto NodeJS gerenciado pelo npm (Node Package Manager) em comb
 - **POST /pessoas**
     - Descrição: Cria uma nova pessoa.
     - Uso: `POST /pessoas`
+    - Corpo da requisição:
+    ```json
+    {
+    "pessoa_nome": "John Doe",
+    "cep": "12345-678",
+    "endereco": "123 Main Street",
+    "numero": "101",
+    "complemento": "Apt 2B",
+    "telefone": "555-555-5555",
+    "email": "johndoe@example.com",
+    "bairro_id": 1,
+    "cidade_id": 1 
+    }
+
+
+### Vendas
+
+- **POST /vendas**
+    - Descrição: Cria uma nova venda.
+    - Uso: `POST /vendas`
+    - Corpo da requisição:
+    ```json
+    {
+    "pessoa_id": 1,
+    "valor_venda": 100
+    }
+
 
 
 ## Contribuição
