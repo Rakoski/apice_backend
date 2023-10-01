@@ -229,7 +229,7 @@ A estrutura do projeto NodeJS gerenciado pelo npm (Node Package Manager) em comb
 - **GET /vendas**
 - Descrição: Pega todas as vendas.
 - Uso: `GET api/vendas`
-- Corpo da requisição:
+- Resposta de sucesso:
     ```json
     {
         "data": [
