@@ -19,12 +19,12 @@ module.exports = (sequelize) => {
         telefone: DataTypes.STRING(21),
         email: DataTypes.STRING,
             bairro_id: {
-                type: DataTypes.INTEGER, // Adjust the data type as needed
-                defaultValue: null, // Set the default value to null or any other appropriate value
+                type: DataTypes.INTEGER,
+                defaultValue: null,
             },
         cidade_id: {
-            type: DataTypes.INTEGER, // Adjust the data type as needed
-            defaultValue: null, // Set the default value to null or any other appropriate value
+            type: DataTypes.INTEGER,
+            defaultValue: null,
         }
     },
         {

@@ -71,4 +71,4 @@ const vendaProdutoServico = {
 
 };
 
-module.exports = vendaServico;
+module.exports = vendaProdutoServico;
