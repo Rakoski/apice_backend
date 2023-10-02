@@ -82,7 +82,7 @@ db.venda_produto.belongsTo(db.venda,{
   foreignKey: 'produto_id'
 })
 
-db.venda_produto.belongsTo(db.venda_produto, {
+db.venda_produto.belongsTo(db.produto, {
   foreignKey: 'venda_id'
 })
 
