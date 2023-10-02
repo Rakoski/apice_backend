@@ -4,6 +4,7 @@ const produtosController = require("../controllers/produtos.controller");
 const bairroController = require("../controllers/bairro.controller");
 const cidadeController = require("../controllers/cidade.controller")
 const pessoaController = require("../controllers/pessoa.controller")
+const vendaController = require("../controllers/venda.controller")
 
 router.get("/produtos", produtosController.getProdutos)
 router.get("/produtos/:id", produtosController.getProdutoById)
@@ -24,5 +25,21 @@ router.put("/cidades/:id", cidadeController.putCidade)
 router.delete("/cidades/:id", cidadeController.deleteCidade)
 
 router.post("/pessoas", pessoaController.createPessoa)
+router.get("/cidades", pessoaController.getPessoa)
+router.get("/cidades/:id", pessoaController.getPessoaById)
+router.put("/cidades/:id", pessoaController.updatePessoa)
+router.delete("/cidades/:id", pessoaController.deletePessoa)
+
+router.post("/pessoas", pessoaController.createPessoa)
+router.get("/pessoas", pessoaController.getPessoa)
+router.get("/pessoas/:id", pessoaController.getPessoaById)
+router.put("/pessoas/:id", pessoaController.updatePessoa)
+router.delete("/pessoas/:id", pessoaController.deletePessoa)
+
+router.post("/vendas", vendaController.postVenda)
+router.get("/vendas", vendaController.getVendas)
+router.get("/vendas/:id", vendaController.getVendaById)
+router.put("/vendas/:id", vendaController.putVenda)
+router.delete("/vendas/:id", vendaController.deleteVenda)
 
 module.exports = router

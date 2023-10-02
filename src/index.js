@@ -1,5 +1,5 @@
 const express = require("express");
-const index = express();
+const app = express();
 const Sequelize = require("sequelize");
 
 require('dotenv').config();
@@ -21,17 +21,17 @@ sequelize.sync({ force: true }).then(() => {
 
 const postsRouter = require('./routes/router')
 
-index.use(express.urlencoded({ extended: false }))
-index.use(express.json())
+app.use(express.urlencoded({ extended: false }))
+app.use(express.json())
 
-index.use("/api", postsRouter)
+app.use("/api", postsRouter)
 
 // pra facilitar o netstat
 const porta = 8080;
 
 sequelize.sync()
     .then(() => {
-        index.listen(porta, () => {
+        app.listen(porta, () => {
             console.log("Servidor ta rodando na porta", porta);
         });
     })
