@@ -16,7 +16,7 @@ Este é o backend do projeto de aplicativo de gerenciamento da Ápice sistemas, 
 1. Clone este repositório.
 2. Configure as variáveis de ambiente, como informações do banco de dados, no arquivo `package.json`.
 3. cd para src/
-4. Execute o aplicativo usando o node:
+4. Execute o aplicativo usando o node: node index.js
 
 ## Estrutura do Projeto
 
@@ -158,6 +158,12 @@ A estrutura do projeto NodeJS gerenciado pelo npm (Node Package Manager) em comb
     {
         "bairro_nome": "Bom Retiro",
         "id_bairro": 3
+    }
+
+    ou
+
+    {
+        "bairro_nome": "Asa Norte"
     }
     ```
     
