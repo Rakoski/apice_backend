@@ -28,15 +28,22 @@ const bairroServico = {
         }
     },
 
-    createBairro: async (bairro_nome) => {
+    createBairro: async (bairro_nome, id_bairro = null) => {
         try {
-            return await Bairro.create({
+            const bairroData = {
                 bairro_nome,
-            });
+            };
+
+            if (id_bairro !== null) {
+                bairroData.id_bairro = id_bairro;
+            }
+
+            return await Bairro.create(bairroData);
         } catch (error) {
             throw error;
         }
     },
+
 
     updateBairro: async (id, bairro_nome) => {
         try {
