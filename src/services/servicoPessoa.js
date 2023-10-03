@@ -1,5 +1,4 @@
 const db = require('../models');
-
 class PessoaService {
     async createPessoa(newPessoaData) {
         try {
@@ -28,30 +27,22 @@ class PessoaService {
         }
     }
 
-    async updatePessoa(id, updatedPessoaData) {
+    async updatePessoa(id_pessoa, updatedPessoaData) {
         try {
             const updatedPessoa = await db.pessoa.update(updatedPessoaData, {
-                where: { id },
+                where: { id_pessoa },
                 returning: true,
             });
-            if (updatedPessoa[0] === 0) {
-                return null; // No pessoa was updated
-            }
-            return updatedPessoa[1][0];
         } catch (error) {
             throw error;
         }
     }
 
-    async deletePessoa(id) {
+    async deletePessoa(id_pessoa) {
         try {
-            const deletedPessoaCount = await db.pessoa.destroy({
-                where: { id },
+            await db.pessoa.destroy({
+                where: { id_pessoa },
             });
-            if (deletedPessoaCount === 0) {
-                return null;
-            }
-            return true;
         } catch (error) {
             throw error;
         }

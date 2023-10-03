@@ -26,8 +26,8 @@ const produtosController = {
 
     postProduto: async (req, res) => {
         try {
-            const { nome_produto, valor_produto } = req.body;
-            const result = await produtosService.createProduto(nome_produto, valor_produto);
+            const { nome_produto, valor_produto, id_produto } = req.body;
+            const result = await produtosService.createProduto(nome_produto, valor_produto, id_produto);
 
             // por algum motivo misterioso as vezes o códdigo vem como 201 ou como affectedRows vem como 0 e
             // o código vem como 200, daí eu só meio que juntei os dois em uma condição só de "sucesso"

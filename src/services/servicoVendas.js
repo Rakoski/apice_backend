@@ -28,23 +28,30 @@ const vendaServico = {
         }
     },
 
-    createVenda: async (pessoa_id, valor_venda) => {
+    createVenda: async (pessoa_id, valor_venda, id_venda = null) => {
         try {
-            return await Venda.create({
+            const vendaData = {
                 pessoa_id,
                 valor_venda
-            });
+            };
+
+            if (id_venda !== null) {
+                vendaData.id_venda = id_venda;
+            }
+
+            return await Venda.create(vendaData);
         } catch (error) {
             throw error;
         }
     },
 
+
     updateVenda: async (id, pessoa_id, valor_venda) => {
         try {
             const [updatedRowsCount] = await Venda.update(
                 { valor_venda },
-                { pessoa_id },
-                { where: { id_venda: id } }
+                { where: { id_venda: id}},
+                { where: { pessoa_id: pessoa_id } }
             );
 
             if (updatedRowsCount === 1) {
