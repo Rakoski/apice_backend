@@ -61,7 +61,7 @@ class PessoaController {
             if (!deletedPessoa) {
                 res.status(404).json({ error: 'Pessoa not found' });
             } else {
-                res.status(204).json(); // No content for successful deletion
+                res.status(204).json();
             }
         } catch (error) {
             console.error('Error deleting pessoa:', error);

@@ -26,11 +26,11 @@ const bairroController = {
 
     postBairro: async (req, res) => {
         try {
-            const { bairro_nome } = req.body;
-            const result = await bairroServico.createBairro(bairro_nome);
+            const { bairro_nome, id_bairro } = req.body;
+            const result = await bairroServico.createBairro(bairro_nome, id_bairro);
 
-            if (result.affectedRows === 1 || res.status(200)) {
-                res.status(201).json({message: 'Bairro criado com sucesso'});
+            if (result) {
+                res.status(201).json({ message: 'Bairro criado com sucesso' });
             } else {
                 res.status(500).json({ error: 'Erro ao inserir dados na tabela Bairro' });
             }
@@ -39,6 +39,7 @@ const bairroController = {
             res.status(500).json({ error: 'Um erro ocorreu' });
         }
     },
+
 
     putBairro: async (req, res) => {
         try {

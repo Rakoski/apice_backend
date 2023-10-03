@@ -28,16 +28,27 @@ const vendaProdutoServico = {
         }
     },
 
-    createVendaProduto: async (venda_id, produto_id) => {
+    createVendaProduto: async (venda_id, produtos) => {
         try {
-            return await VendaProduto.create({
+            const vendaProdutos = produtos.map(produto_id => ({
                 venda_id,
                 produto_id
-            });
+            }));
+
+
+            // eu vou deixar com o bulkcreate para poder registrar uma venda com vários produtos, tipo assim:
+            //  {
+            //     "venda_id": 1,
+            //     "produtos": [1, 2, 3]
+            //  }
+            const createdRecords = await VendaProduto.bulkCreate(vendaProdutos);
+
+            return createdRecords;
         } catch (error) {
             throw error;
         }
     },
+
 
     updateVendaProduto: async (id, venda_id, produto_id) => {
         try {

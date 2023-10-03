@@ -52,12 +52,14 @@ db.venda = require("./venda")(sequelize, DataTypes)
 
 db.bairro.hasMany(db.pessoa, {
   foreignKey : 'bairro_id',
-  as: 'review'
+  as: 'review',
+    onDelete: 'CASCADE'
 })
 
 db.cidade.hasMany(db.pessoa, {
   foreignKey : 'cidade_id',
-  as: 'review'
+  as: 'review',
+    onDelete: 'CASCADE'
 })
 
 db.pessoa.belongsTo(db.cidade, {
@@ -70,12 +72,14 @@ db.pessoa.belongsTo(db.cidade, {
 
 db.produto.hasMany(db.venda_produto, {
   foreignKey: 'produto_id',
-  as: 'review'
+  as: 'review',
+    onDelete: 'CASCADE'
 })
 
 db.venda.hasMany(db.venda_produto, {
   foreignKey: 'venda_id',
-  as: 'review'
+  as: 'review',
+    onDelete: 'CASCADE'
 })
 
 db.venda_produto.belongsTo(db.venda,{
@@ -88,7 +92,8 @@ db.venda_produto.belongsTo(db.produto, {
 
 db.pessoa.hasMany(db.venda, {
   foreignKey: 'pessoa_id',
-  as: 'review'
+  as: 'review',
+    onDelete: 'CASCADE'
 })
 
 db.venda.belongsTo(db.pessoa, {

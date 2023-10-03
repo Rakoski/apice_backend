@@ -25,11 +25,11 @@ const venda_produtosController = {
 
     postVendaProduto: async (req, res) => {
         try {
-            const { produto_id, venda_id } = req.body;
-            const result = await venda_produtosService.createVendaProduto(produto_id, venda_id);
+            const { venda_id, produtos } = req.body;
+            const result = await venda_produtosService.createVendaProduto(venda_id, produtos);
 
-            if (result.affectedRows === 1 || res.status(200)) {
-                res.status(201).json({message: 'venda_produto criado com sucesso'});
+            if (result) {
+                res.status(201).json({ message: 'venda_produto criado com sucesso' });
             } else {
                 res.status(500).json({ error: 'Erro ao inserir dados na tabela venda_produto' });
             }

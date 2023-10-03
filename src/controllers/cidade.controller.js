@@ -25,11 +25,9 @@ const cidadeController = {
 
     postCidade: async (req, res) => {
         try {
-            const {cidade_nome, sigla_uf} = req.body;
-            const result = await cidadeServico.createCidade(cidade_nome, sigla_uf);
+            const {cidade_nome, sigla_uf, id_cidade} = req.body;
+            const result = await cidadeServico.createCidade(cidade_nome, sigla_uf, id_cidade);
 
-            // por algum motivo misterioso as vezes o códdigo vem como 201 ou como affectedRows vem como 0 e
-            // o código vem como 200, daí eu só meio que juntei os dois em uma condição só de "sucesso"
             if (result.affectedRows === 1 || res.status(200)) {
                 res.status(201).json({message: 'Cidade criado com sucesso'});
             } else {

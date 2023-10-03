@@ -22,23 +22,29 @@ const CidadesService = {
 
     getCidadeById: async (id) => {
         try {
-            const Cidade = await Cidade.findOne({ where: { id_cidade: id } });
-            return Cidade;
+            return await Cidade.findOne({ where: { id_cidade: id } });
         } catch (error) {
             throw error;
         }
     },
 
-    createCidade: async (cidade_nome, sigla_uf) => {
+    createCidade: async (cidade_nome, sigla_uf, id_cidade = null) => {
         try {
-            return await Cidade.create({
+            const cidadeData = {
                 cidade_nome,
                 sigla_uf,
-            });
+            };
+
+            if (id_cidade !== null) {
+                cidadeData.id_cidade = id_cidade;
+            }
+
+            return await Cidade.create(cidadeData);
         } catch (error) {
             throw error;
         }
     },
+
 
     updateCidade: async (id, cidade_nome, sigla_uf) => {
         try {

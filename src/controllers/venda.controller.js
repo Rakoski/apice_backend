@@ -26,11 +26,9 @@ const vendasController = {
 
     postVenda: async (req, res) => {
         try {
-            const { pessoa_id, valor_venda } = req.body;
-            const result = await vendasService.createVenda(pessoa_id, valor_venda);
+            const { pessoa_id, valor_venda, id_venda } = req.body;
+            const result = await vendasService.createVenda(pessoa_id, valor_venda, id_venda);
 
-            // por algum motivo misterioso as vezes o códdigo vem como 201 ou como affectedRows vem como 0 e
-            // o código vem como 200, daí eu só meio que juntei os dois em uma condição só de "sucesso"
             if (result.affectedRows === 1 || res.status(200)) {
                 res.status(201).json({message: 'venda criado com sucesso'});
             } else {

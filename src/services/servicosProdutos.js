@@ -28,16 +28,23 @@ const produtosService = {
         }
     },
 
-    createProduto: async (nome_produto, valor_produto) => {
+    createProduto: async (nome_produto, valor_produto, id_produto = null) => {
         try {
-            return await Produto.create({
+            const produtoData = {
                 nome_produto,
                 valor_produto,
-            });
+            };
+
+            if (id_produto !== null) {
+                produtoData.id_produto = id_produto;
+            }
+
+            return await Produto.create(produtoData);
         } catch (error) {
             throw error;
         }
     },
+
 
     updateProduto: async (id, nome_produto, valor_produto) => {
         try {
