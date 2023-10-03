@@ -156,7 +156,8 @@ A estrutura do projeto NodeJS gerenciado pelo npm (Node Package Manager) em comb
     - Corpo da requisição:
     ```json
     {
-        "bairro_nome": "Batel"
+        "bairro_nome": "Bom Retiro",
+        "id_bairro": 3
     }
     ```
     
