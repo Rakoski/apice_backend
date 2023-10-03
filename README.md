@@ -154,11 +154,12 @@ A estrutura do projeto NodeJS gerenciado pelo npm (Node Package Manager) em comb
     - Descrição: Cria um novo bairro.
     - Uso: `POST /api/bairros`
     - Corpo da requisição:
-    ```
+    ```json
     {
         "bairro_nome": "Batel"
     }
     ```
+    
     - Resposta de sucesso:
     ```json
     {
@@ -214,6 +215,50 @@ A estrutura do projeto NodeJS gerenciado pelo npm (Node Package Manager) em comb
         "cidade_id": 1 
     }
 
+- **GET /pessoas**
+  - Descrição: Retorna todas as cidades já registradas.
+  - Uso: `GET /api/pessoas
+  - Corpo da requisição:
+  ```json
+  [
+    {
+        "id_pessoa": 2,
+        "pessoa_nome": "João de Barro",
+        "cep": "12345-678",
+        "endereco": "123 Rua principal",
+        "numero": "1A",
+        "complemento": "Apt 2B",
+        "telefone": "+55 (44) 91234-5678",
+        "email": "joão@exemplo.com",
+        "bairro_id": 1,
+        "cidade_id": 1
+    },
+    {
+        "id_pessoa": 3,
+        "pessoa_nome": "Lionel Messi",
+        "cep": "12345-678",
+        "endereco": "Rua Tancredo Neves 123",
+        "numero": "184",
+        "complemento": "Apt 26BA",
+        "telefone": "+55 (44) 99765-6543",
+        "email": "leomessi@gmai.com",
+        "bairro_id": 1,
+        "cidade_id": 1
+    },
+    {
+        "id_pessoa": 4,
+        "pessoa_nome": "Lionel Messi",
+        "cep": "12345-678",
+        "endereco": "Rua Tancredo Neves 123",
+        "numero": "184",
+        "complemento": "Apt 26BA",
+        "telefone": "+55 (44) 99765-6543",
+        "email": "cr7@gmai.com",
+        "bairro_id": 1,
+        "cidade_id": 1
+    }
+  ]
+
 ### Vendas
 
 - **POST /vendas**
@@ -222,8 +267,8 @@ A estrutura do projeto NodeJS gerenciado pelo npm (Node Package Manager) em comb
 - Corpo da requisição:
     ```json
     {
-    "pessoa_id": 1,
-    "valor_venda": 100
+        "pessoa_id": 1,
+        "valor_venda": 100
     }
         
 - **GET /vendas**
@@ -240,6 +285,48 @@ A estrutura do projeto NodeJS gerenciado pelo npm (Node Package Manager) em comb
             }
         ]
     }
+
+### Venda_Produto
+
+- **POST /vendas_produtos**
+- Descrição: Registra uma venda com seu produto
+- Uso: `POST /api/vendas_produtos`
+- Corpo da requisição:
+  ```json
+  {
+    "venda_id": 1,
+    "produtos": [1, 5, 6]
+  }
+
+- **GET /vendas_produtos**
+- Descrição: Pega todas as vendas registradas com seus produtos
+- Uso: `GET /api/vendas_produtos`
+- Corpo da requisição:
+  ```json
+  {
+    "data": [
+        {
+            "id_vendaproduto": 1,
+            "produto_id": 1,
+            "venda_id": 1
+        },
+        {
+            "id_vendaproduto": 2,
+            "produto_id": 1,
+            "venda_id": 1
+        },
+        {
+            "id_vendaproduto": 3,
+            "produto_id": 5,
+            "venda_id": 1
+        },
+        {
+            "id_vendaproduto": 4,
+            "produto_id": 6,
+            "venda_id": 1
+        }
+    ]
+  }
 
 ## Contribuição
 
