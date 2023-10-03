@@ -157,13 +157,7 @@ A estrutura do projeto NodeJS gerenciado pelo npm (Node Package Manager) em comb
     ```json
     {
         "bairro_nome": "Bom Retiro",
-        "id_bairro": 3
-    }
-
-    ou
-
-    {
-        "bairro_nome": "Asa Norte"
+        "id_bairro": 3 (opcional)
     }
     ```
     
@@ -186,14 +180,51 @@ A estrutura do projeto NodeJS gerenciado pelo npm (Node Package Manager) em comb
 - **GET /cidades**
     - Descrição: Retorna todas as cidades.
     - Uso: `GET /api/cidades`
+    - Resposta de sucesso:
+    ```json
+    {
+    "data": [
+        {
+            "id_cidade": 1,
+            "cidade_nome": "São Paulo",
+            "sigla_uf": "SP"
+        },
+        {
+            "id_cidade": 2,
+            "cidade_nome": "Rio de Janeiro",
+            "sigla_uf": "RJ"
+        },
+        {
+            "id_cidade": 12,
+            "cidade_nome": "Brasilia",
+            "sigla_uf": "DF"
+        }
+    ] 
+  }
 
 - **GET /cidades/:id**
     - Descrição: Retorna uma cidade específica com base no ID.
     - Uso: `GET /api/cidades/:id`
+    - Resposta de sucesso:
+    ```json
+    {
+    "data": {
+        "id_cidade": 1,
+        "cidade_nome": "São Paulo",
+        "sigla_uf": "SP"
+     }
+   }
 
 - **POST /cidades**
     - Descrição: Cria uma nova cidade.
     - Uso: `POST /api/cidades`
+    - Corpo da requisição:
+    ```json
+    {
+        "cidade_nome": "Brasilia",
+        "sigla_uf": "DF",
+        "id_cidade": 15 (opcional)
+    }
 
 - **PUT /cidades/:id**
     - Descrição: Atualiza uma cidade existente com base no ID.
@@ -211,15 +242,16 @@ A estrutura do projeto NodeJS gerenciado pelo npm (Node Package Manager) em comb
     - Corpo da requisição:
     ```json
     {
-        "pessoa_nome": "John Doe",
+        "id_pessoa": 3,
+        "pessoa_nome": "Lionel Messi",
         "cep": "12345-678",
-        "endereco": "123 Main Street",
-        "numero": "101",
-        "complemento": "Apt 2B",
-        "telefone": "555-555-5555",
-        "email": "johndoe@example.com",
+        "endereco": "Rua Tancredo Neves 123",
+        "numero": "184",
+        "complemento": "Apt 26BA",
+        "telefone": "+55 (44) 99765-654",
+        "email": "leomessi@gmai.com",
         "bairro_id": 1,
-        "cidade_id": 1 
+        "cidade_id": 1
     }
 
 - **GET /pessoas**
@@ -266,6 +298,22 @@ A estrutura do projeto NodeJS gerenciado pelo npm (Node Package Manager) em comb
     }
   ]
 
+- **PUT /pessoas/:id**
+    - Descrição: Atualiza uma cidade existente com base no ID.
+    - Uso: `PUT /api/cidades/:id`
+    - Corpo da requisição:
+    ```json
+    
+
+- **DELETE /pessoas/:id**
+    - Descrição: Exclui uma cidade existente com base no ID.
+    - Uso: `DELETE /api/cidades/:id`
+    - Resposta de sucesso:
+    ```json
+    {
+        "Pessoa not found"
+    }
+
 ### Vendas
 
 - **POST /vendas**
@@ -303,6 +351,11 @@ A estrutura do projeto NodeJS gerenciado pelo npm (Node Package Manager) em comb
   {
     "venda_id": 1,
     "produtos": [1, 5, 6]
+  }
+- Resposta de sucesso:
+  ```json
+  {
+    "message": "venda_produto criado com sucesso"
   }
 
 - **GET /vendas_produtos**
