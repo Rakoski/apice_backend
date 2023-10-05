@@ -341,6 +341,14 @@ A estrutura do projeto NodeJS gerenciado pelo npm (Node Package Manager) em comb
         ]
     }
 
+- **PUT /vendas/:id**
+    - Descrição: Atualiza uma venda existente com base no ID.
+    - Uso: `PUT /api/vendas/:id`
+
+- **DELETE /vendas/:id**
+    - Descrição: Exclui uma venda existente com base no ID.
+    - Uso: `DELETE /api/vendas/:id`
+
 ### Venda_Produto
 
 - **POST /vendas_produtos**
@@ -387,6 +395,14 @@ A estrutura do projeto NodeJS gerenciado pelo npm (Node Package Manager) em comb
         }
     ]
   }
+
+- **PUT /vendas_produtos/:id**
+    - Descrição: Atualiza uma venda_produto existente com base no ID.
+    - Uso: `PUT /api/venda_produtos/:id`
+
+- **DELETE /vendas_produtos/:id**
+    - Descrição: Exclui uma venda_produto existente com base no ID.
+    - Uso: `DELETE /api/venda_produtos/:id`
 
 ## Contribuição
 
