@@ -44,12 +44,9 @@ const vendasController = {
         try {
             const { pessoa_id, valor_venda } = req.body;
             const { id } = req.params;
-            const result = await vendasService.updateVenda(id, pessoa_id, valor_venda);
-            if (result.affectedRows === 1) {
-                res.json({ message: 'venda atualizado com sucesso' });
-            } else {
-                res.status(404).json({ error: 'venda não encontrado' });
-            }
+            await vendasService.updateVenda(id, pessoa_id, valor_venda);
+            res.json({ message: 'venda atualizado com sucesso' });
+
         } catch (error) {
             console.error('Erro ao editar dados dos vendas:', error);
             res.status(500).json({ error: 'Um erro ocorreu' });

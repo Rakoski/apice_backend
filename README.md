@@ -325,7 +325,7 @@ A estrutura do projeto NodeJS gerenciado pelo npm (Node Package Manager) em comb
         "pessoa_id": 1,
         "valor_venda": 100
     }
-        
+
 - **GET /vendas**
 - Descrição: Pega todas as vendas.
 - Uso: `GET api/vendas`

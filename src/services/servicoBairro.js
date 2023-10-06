@@ -21,7 +21,16 @@ const bairroServico = {
 
     getBairroById: async (id) => {
         try {
-            const bairro = await Bairro.findOne({ where: { id_produto: id } });
+            const bairro = await Bairro.findOne({ where: { id_bairro: id } });
+            return bairro;
+        } catch (error) {
+            throw error;
+        }
+    },
+
+    getBairroByBairroNome: async (bairro_nome) => {
+        try {
+            const bairro = await Bairro.findOne({ where: { bairro_nome: bairro_nome } });
             return bairro;
         } catch (error) {
             throw error;

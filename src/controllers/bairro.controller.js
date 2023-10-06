@@ -24,6 +24,17 @@ const bairroController = {
         }
     },
 
+    getBairroByNome: async (req, res) => {
+        try {
+            const { bairro_nome } = req.params;
+            const data = await bairroServico.getBairroByBairroNome(bairro_nome);
+            res.json({ data });
+        } catch (error) {
+            console.error("Erro pegar dados por Id:", error);
+            res.status(500).json({ error: "Um erro ocorreu" });
+        }
+    },
+
     postBairro: async (req, res) => {
         try {
             const { bairro_nome, id_bairro } = req.body;

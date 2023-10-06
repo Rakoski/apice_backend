@@ -46,12 +46,11 @@ const vendaServico = {
     },
 
 
-    updateVenda: async (id, pessoa_id, valor_venda) => {
+    updateVenda: async (id_venda, pessoa_id, valor_venda) => {
         try {
             const [updatedRowsCount] = await Venda.update(
-                { valor_venda },
-                { where: { id_venda: id}},
-                { where: { pessoa_id: pessoa_id } }
+                { pessoa_id, valor_venda },
+                { where: { id_venda: id_venda}},
             );
 
             if (updatedRowsCount === 1) {

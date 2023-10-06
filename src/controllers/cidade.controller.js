@@ -1,4 +1,5 @@
 const cidadeServico = require("../services/servicoCidade")
+const bairroServico = require("../services/servicoBairro");
 
 const cidadeController = {
 
@@ -23,6 +24,17 @@ const cidadeController = {
         }
     },
 
+    getCidadeByNome: async (req, res) => {
+        try {
+            const { cidade_nome } = req.params;
+            const data = await cidadeServico.getCidadeByCidadeNome(cidade_nome);
+            res.json({ data });
+        } catch (error) {
+            console.error("Erro pegar dados por Id:", error);
+            res.status(500).json({ error: "Um erro ocorreu" });
+        }
+    },
+
     postCidade: async (req, res) => {
         try {
             const {cidade_nome, sigla_uf, id_cidade} = req.body;
@@ -44,13 +56,11 @@ const cidadeController = {
             const {cidade_nome, sigla_uf} = req.body;
             const {id} = req.params;
             const result = await cidadeServico.updateCidade(id, cidade_nome, sigla_uf);
-            if (result.affectedRows === 1) {
+            if (result.affectedRows === 1 || res.status(404) || res.status(200)) {
                 res.json({message: 'Cidade atualizado com sucesso'});
-            } else {
-                res.status(404).json({error: 'Cidade não encontrado'});
             }
         } catch (error) {
-            console.error('Erro ao editar dados dos produtos:', error);
+            console.error('Erro ao editar dados das cidades:', error);
             res.status(500).json({error: 'Um erro ocorreu'});
         }
     },

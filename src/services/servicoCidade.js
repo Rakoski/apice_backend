@@ -28,6 +28,15 @@ const CidadesService = {
         }
     },
 
+    getCidadeByCidadeNome: async (cidade_nome) => {
+        try {
+            const cidade = await Cidade.findOne({ where: { cidade_nome: cidade_nome } });
+            return cidade;
+        } catch (error) {
+            throw error;
+        }
+    },
+
     createCidade: async (cidade_nome, sigla_uf, id_cidade = null) => {
         try {
             const cidadeData = {
@@ -45,7 +54,6 @@ const CidadesService = {
         }
     },
 
-
     updateCidade: async (id, cidade_nome, sigla_uf) => {
         try {
             const [updatedRowsCount] = await Cidade.update(
@@ -55,11 +63,15 @@ const CidadesService = {
 
             if (updatedRowsCount === 1) {
                 return { message: 'Cidade atualizado com sucesso' };
+            } else {
+                throw new Error('Cidade não encontrado ou não atualizado');
             }
         } catch (error) {
+            console.error('Erro ao atualizar cidade:', error);
             throw error;
         }
     },
+
 
     deleteCidade: async (id) => {
         try {
