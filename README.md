@@ -301,18 +301,10 @@ A estrutura do projeto NodeJS gerenciado pelo npm (Node Package Manager) em comb
 - **PUT /pessoas/:id**
     - Descrição: Atualiza uma cidade existente com base no ID.
     - Uso: `PUT /api/cidades/:id`
-    - Corpo da requisição:
-    ```json
-    
 
 - **DELETE /pessoas/:id**
     - Descrição: Exclui uma cidade existente com base no ID.
     - Uso: `DELETE /api/cidades/:id`
-    - Resposta de sucesso:
-    ```json
-    {
-        "Pessoa not found"
-    }
 
 ### Vendas
 
@@ -322,8 +314,9 @@ A estrutura do projeto NodeJS gerenciado pelo npm (Node Package Manager) em comb
 - Corpo da requisição:
     ```json
     {
-        "pessoa_id": 1,
-        "valor_venda": 100
+      "pessoa_id": 7,
+      "valor_venda": 50.99, 
+      "data_venda": "2023-10-07" 
     }
 
 - **GET /vendas**
