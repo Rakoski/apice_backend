@@ -17,6 +17,7 @@ module.exports = (sequelize, DataTypes) => {
                 foreignKey: true
             },
             valor_venda: DataTypes.DECIMAL(15, 2),
+            data_venda: DataTypes.DATE
         },
         {
             timestamps: false,

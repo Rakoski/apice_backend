@@ -14,7 +14,6 @@ class PessoaController {
 
     async getPessoa(req, res) {
         try {
-            // Implement code to fetch all pessoas from pessoaService
             const pessoas = await pessoaService.getPessoas();
             res.status(200).json(pessoas);
         } catch (error) {
@@ -25,7 +24,7 @@ class PessoaController {
 
     async getPessoaById(req, res) {
         try {
-            const pessoaId = req.params.id; // Assuming the id is passed as a URL parameter
+            const pessoaId = req.params.id;
             const pessoa = await pessoaService.getPessoaById(pessoaId);
             if (!pessoa) {
                 res.status(404).json({ error: 'Pessoa not found' });
@@ -40,7 +39,7 @@ class PessoaController {
 
     async updatePessoa(req, res) {
         try {
-            const pessoaId = req.params.id; // Assuming the id is passed as a URL parameter
+            const pessoaId = req.params.id;
             const updatedPessoaData = req.body;
             const updatedPessoa = await pessoaService.updatePessoa(pessoaId, updatedPessoaData);
             if (!updatedPessoa) {

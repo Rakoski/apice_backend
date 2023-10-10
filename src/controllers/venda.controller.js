@@ -26,8 +26,8 @@ const vendasController = {
 
     postVenda: async (req, res) => {
         try {
-            const { pessoa_id, valor_venda, id_venda } = req.body;
-            const result = await vendasService.createVenda(pessoa_id, valor_venda, id_venda);
+            const { pessoa_id, valor_venda, data_venda, id_venda } = req.body;
+            const result = await vendasService.createVenda(pessoa_id, valor_venda, data_venda, id_venda);
 
             if (result.affectedRows === 1 || res.status(200)) {
                 res.status(201).json({message: 'venda criado com sucesso'});

@@ -28,11 +28,12 @@ const vendaServico = {
         }
     },
 
-    createVenda: async (pessoa_id, valor_venda, id_venda = null) => {
+    createVenda: async (pessoa_id, valor_venda, data_venda, id_venda = null) => {
         try {
             const vendaData = {
                 pessoa_id,
-                valor_venda
+                valor_venda,
+                data_venda
             };
 
             if (id_venda !== null) {
