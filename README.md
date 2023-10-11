@@ -1,9 +1,9 @@
 # Sistema da Ápice para projeto de estágio!
-Construindo sistema fullstack p/ apice com React, NodeJS, ExpressJS, Sequelize e MySQL
+Repositório backend para o sistema fullstack p/ apice com React, NodeJS, ExpressJS, Sequelize e MySQL
 
 # Backend do Aplicativo do sistema da Ápice - README
 
-Este é o backend do projeto de aplicativo de gerenciamento da Ápice sistemas, desenvolvido em Javascript com NodeJS e ExpressJS. O backend fornece as APIs para o web em React a se conectarem e obterem todos os dados necessários para melhor gerenciamento.
+Este é o backend do projeto de aplicativo de gerenciamento da Ápice sistemas, desenvolvido em Javascript com NodeJS, ExpressJS e Sequelize. O backend fornece as APIs para o web em React a se conectarem e obterem todos os dados necessários para melhor gerenciamento.
 
 ## Tecnologias Utilizadas
 
