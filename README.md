@@ -7,8 +7,8 @@ Este é o backend do projeto de aplicativo de gerenciamento da Ápice sistemas, 
 
 ## Tecnologias Utilizadas
 
-- Backend: NodeJS, ExpressJS (Javascript)
-- Build tool c/ npm, Yarn e configurações com .env
+- Backend: NodeJS, ExpressJS e Sequelize (javascript)
+- Build tool c/ npm, Yarn e configurações com .env (dotenv)
 - Banco de Dados: MySQL, 
 
 ## Configuração
