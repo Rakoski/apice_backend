@@ -334,6 +334,15 @@ A estrutura do projeto NodeJS gerenciado pelo npm (Node Package Manager) em comb
         ]
     }
 
+- **GET /vendas/:valor_venda/:data_venda**
+- Descrição: pega o id_venda através do valor_venda e da data_venda
+- Uso: `GET /api/vendas/:valor_venda/:data_venda
+- Resposta de sucesso:
+  ```json
+  {
+    "data": 2
+  }
+
 - **PUT /vendas/:id**
     - Descrição: Atualiza uma venda existente com base no ID.
     - Uso: `PUT /api/vendas/:id`
