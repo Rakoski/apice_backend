@@ -28,11 +28,31 @@ const vendaServico = {
         }
     },
 
-    createVenda: async (pessoa_id, valor_venda, id_venda = null) => {
+    getVendaIdByVendaInfo: async (valor_venda, data_venda) => {
+        try {
+            const venda = await Venda.findOne({
+                where: {
+                    valor_venda: valor_venda,
+                    data_venda: data_venda
+                }
+            });
+            if (venda) {
+                return venda.id_venda;
+            } else {
+                return null;
+            }
+        } catch (error) {
+            console.error('Erro:', error);
+            throw error;
+        }
+    },
+
+    createVenda: async (pessoa_id, valor_venda, data_venda, id_venda = null) => {
         try {
             const vendaData = {
                 pessoa_id,
-                valor_venda
+                valor_venda,
+                data_venda
             };
 
             if (id_venda !== null) {

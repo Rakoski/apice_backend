@@ -42,6 +42,7 @@ router.delete("/pessoas/:id", pessoaController.deletePessoa)
 router.post("/vendas", vendaController.postVenda)
 router.get("/vendas", vendaController.getVendas)
 router.get("/vendas/:id", vendaController.getVendaById)
+router.get("/vendas/:valor_venda/:data_venda", vendaController.getVendaIdByInfo)
 router.put("/vendas/:id", vendaController.putVenda)
 router.delete("/vendas/:id", vendaController.deleteVenda)
 
