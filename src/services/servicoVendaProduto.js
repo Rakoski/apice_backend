@@ -11,6 +11,7 @@ const sequelize = new Sequelize(
 const VendaProduto = require('../models/venda_produto')(sequelize, DataTypes);
 
 const vendaProdutoServico = {
+
     getVendaProdutos: async () => {
         try {
             return await VendaProduto.findAll();
@@ -78,7 +79,14 @@ const vendaProdutoServico = {
         }
     },
 
-
+    getVendasByProdutoId: async (id) => {
+        try {
+            const Vendas = await VendaProduto.findAll({ where: { produto_id: id } });
+            return Vendas;
+        } catch (error) {
+            throw error
+        }
+    }
 
 };
 

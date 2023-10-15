@@ -49,6 +49,7 @@ router.delete("/vendas/:id", vendaController.deleteVenda)
 router.post("/vendas_produtos", vendaServicoController.postVendaProduto)
 router.get("/vendas_produtos", vendaServicoController.getVendaProdutos)
 router.get("/vendas_produtos/:id", vendaServicoController.getVendaProdutoById)
+router.get("/vendas_produtos/produto/:produto_id", vendaServicoController.getVendasByIdProduto);
 router.put("/vendas_produtos/:id", vendaServicoController.putVendaProduto)
 router.delete("/vendas_produtos/:id", vendaServicoController.deleteVendaProduto)
 
