@@ -30,19 +30,16 @@ const vendaServico = {
 
     getVendaIdByVendaInfo: async (valor_venda, data_venda) => {
         try {
-            const venda = await Venda.findOne({
-                where: {
-                    valor_venda: valor_venda,
-                    data_venda: data_venda
+            const [results, metadata] = await sequelize.query(
+                'SELECT id_venda FROM venda WHERE valor_venda = :valor_venda AND data_venda = :data_venda',
+                {
+                    replacements: { valor_venda, data_venda },
+                    type: Sequelize.QueryTypes.SELECT,
                 }
-            });
-            if (venda) {
-                return venda.id_venda;
-            } else {
-                return null;
-            }
+            );
+            return results
         } catch (error) {
-            console.error('Erro:', error);
+            console.error('Error:', error);
             throw error;
         }
     },
