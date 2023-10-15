@@ -58,31 +58,6 @@ A estrutura do projeto NodeJS gerenciado pelo npm (Node Package Manager) em comb
             "id_produto": 7,
             "nome_produto": "Caneta azul BIC",
             "valor_produto": "1.99"
-        },
-        {
-            "id_produto": 8,
-            "nome_produto": "Copo stanley",
-            "valor_produto": "50.99"
-        },
-        {
-            "id_produto": 9,
-            "nome_produto": "Copo stanley 2",
-            "valor_produto": "50.99"
-        },
-        {
-            "id_produto": 10,
-            "nome_produto": "Copo stanley 3",
-            "valor_produto": "50.99"
-        },
-        {
-            "id_produto": 11,
-            "nome_produto": "Estojo IFPR",
-            "valor_produto": "12.99"
-        },
-        {
-            "id_produto": 12,
-            "nome_produto": "Mircrofone",
-            "valor_produto": "40.99"
         }
     ]
 }
@@ -283,18 +258,6 @@ A estrutura do projeto NodeJS gerenciado pelo npm (Node Package Manager) em comb
         "email": "leomessi@gmai.com",
         "bairro_id": 1,
         "cidade_id": 1
-    },
-    {
-        "id_pessoa": 4,
-        "pessoa_nome": "Lionel Messi",
-        "cep": "12345-678",
-        "endereco": "Rua Tancredo Neves 123",
-        "numero": "184",
-        "complemento": "Apt 26BA",
-        "telefone": "+55 (44) 99765-6543",
-        "email": "cr7@gmai.com",
-        "bairro_id": 1,
-        "cidade_id": 1
     }
   ]
 
@@ -371,7 +334,7 @@ A estrutura do projeto NodeJS gerenciado pelo npm (Node Package Manager) em comb
 - **GET /vendas_produtos**
 - Descrição: Pega todas as vendas registradas com seus produtos
 - Uso: `GET /api/vendas_produtos`
-- Corpo da requisição:
+- Resposta de sucesso:
   ```json
   {
     "data": [
@@ -389,11 +352,31 @@ A estrutura do projeto NodeJS gerenciado pelo npm (Node Package Manager) em comb
             "id_vendaproduto": 3,
             "produto_id": 5,
             "venda_id": 1
+        }
+    ]
+  }
+
+- **GET vendas_produtos/produto/:id_produto**
+- Descrição: Pega todas as vendas registradas com um único produto
+- Uso `GET /api/vendas_produtos/produto/:id_produto**
+- Resposta de sucesso:
+  ```json
+  {
+    "data": [
+        {
+            "id_vendaproduto": 1,
+            "produto_id": 3,
+            "venda_id": 112
         },
         {
-            "id_vendaproduto": 4,
-            "produto_id": 6,
-            "venda_id": 1
+            "id_vendaproduto": 8,
+            "produto_id": 3,
+            "venda_id": 1990
+        },
+        {
+            "id_vendaproduto": 11,
+            "produto_id": 3,
+            "venda_id": 45
         }
     ]
   }
