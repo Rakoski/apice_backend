@@ -23,6 +23,17 @@ const venda_produtosController = {
         }
     },
 
+    getVendasByIdProduto: async (req, res) => {
+        try {
+            const { produto_id } = req.params;
+            const data = await venda_produtosService.getVendasByProdutoId(produto_id);
+            res.json({ data });
+        } catch (error) {
+            console.error("Erro pegar dados por Id:", error);
+            res.status(500).json({ error: "Um erro ocorreu" });
+        }
+    },
+
     postVendaProduto: async (req, res) => {
         try {
             const { venda_id, produtos } = req.body;
