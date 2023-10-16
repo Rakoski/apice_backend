@@ -231,8 +231,8 @@ A estrutura do projeto NodeJS gerenciado pelo npm (Node Package Manager) em comb
 
 - **GET /pessoas**
   - Descrição: Retorna todas as cidades já registradas.
-  - Uso: `GET /api/pessoas
-  - Corpo da requisição:
+  - Uso: `GET /api/pessoas'
+  - Resposta:
   ```json
   [
     {
