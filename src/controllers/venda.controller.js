@@ -35,6 +35,23 @@ const vendasController = {
         }
     },
 
+    getVendaDates: async (req, res) => {
+        try {
+            const { data_inicial, data_final } = req.params;
+            const data = await vendasService.getVendasBetweenDates(data_inicial, data_final);
+
+            if (data) {
+                res.json(data);
+            } else {
+                res.status(404).json({ error: 'Dados das datas não encontrados' });
+            }
+        } catch (error) {
+            console.error('Erro ao encontrar as datas:', error);
+            res.status(500).json({ error: 'Um erro ocorreu' });
+        }
+    },
+
+
     postVenda: async (req, res) => {
         try {
             const { pessoa_id, valor_venda, data_venda, id_venda } = req.body;

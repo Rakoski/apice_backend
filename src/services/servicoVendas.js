@@ -1,4 +1,4 @@
-const { Sequelize, DataTypes } = require('sequelize');
+const { Sequelize, DataTypes, Op} = require('sequelize');
 const sequelize = new Sequelize(
     process.env.DB_DBNAME,
     process.env.DB_USERNAME,
@@ -41,6 +41,20 @@ const vendaServico = {
         } catch (error) {
             console.error('Error:', error);
             throw error;
+        }
+    },
+
+    getVendasBetweenDates: async (data_inicial, data_final) => {
+        try {
+            return await Venda.findAll({
+                where: {
+                    data_venda: {
+                        [Op.between]: [data_inicial, data_final],
+                    },
+                },
+            });
+        } catch (error) {
+            throw new Error('Erro ao pegar as datas das vendas: ' + error);
         }
     },
 
