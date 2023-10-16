@@ -1,9 +1,9 @@
 const { Sequelize } = require("sequelize");
 
-const sequelize = new Sequelize("apice", "Mateus", "Mateus0312", {
+const sequelize = new Sequelize("apice", "meu-usuario", "minha-senha", {
     dialect: "mysql",
     host: "localhost",
-    database: "apice", // Add this line to specify the database
+    database: "apice",
 });
 
 module.exports = sequelize;
